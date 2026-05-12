@@ -37,5 +37,4 @@
  ##  License
 ​
  This project is designed for social impact and empowering the agricultural community.
-README.md
-+40
+
