@@ -260,12 +260,37 @@ fun HomeScreen(navController: NavHostController, onLanguageChange: (AppLanguage)
             color = Color.White.copy(alpha = 0.9f)
         )
         Spacer(modifier = Modifier.height(60.dp))
-        
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
-            HomeIconItem(Icons.Default.Agriculture, s.cow) { navController.navigate("profile") }
-            HomeIconItem(Icons.Default.Restaurant, s.feed) { navController.navigate("profile") }
-            HomeIconItem(Icons.Default.Savings, s.cost) { navController.navigate("profile") }
-            HomeIconItem(Icons.Default.Lightbulb, s.tips) { navController.navigate("tips") }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+
+            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                HomeIconItem(Icons.Default.Agriculture, s.cow) {
+                    navController.navigate("profile")
+                }
+            }
+
+            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                HomeIconItem(Icons.Default.Restaurant, s.feed) {
+                    navController.navigate("profile")
+                }
+            }
+
+            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                HomeIconItem(Icons.Default.Savings, s.cost) {
+                    navController.navigate("profile")
+                }
+            }
+
+            Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
+                HomeIconItem(Icons.Default.Lightbulb, s.tips) {
+                    navController.navigate("tips")
+                }
+            }
         }
 
         Spacer(modifier = Modifier.height(60.dp))
@@ -299,15 +324,15 @@ fun HomeIconItem(icon: ImageVector, label: String, onClick: () -> Unit) {
     ) {
         Box(
             modifier = Modifier
-                .size(70.dp)
+                .size(60.dp)
                 .clip(RoundedCornerShape(18.dp))
                 .background(Color.White.copy(alpha = 0.25f)),
             contentAlignment = Alignment.Center
         ) {
-            Icon(imageVector = icon, contentDescription = label, tint = Color.White, modifier = Modifier.size(36.dp))
+            Icon(imageVector = icon, contentDescription = label, tint = Color.White, modifier = Modifier.size(28.dp))
         }
         Spacer(modifier = Modifier.height(8.dp))
-        Text(text = label, color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+        Text(text = label, color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold)
     }
 }
 
